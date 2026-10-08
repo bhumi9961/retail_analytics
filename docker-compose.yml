@@ -1,0 +1,27 @@
+# Starts a local MySQL 8 database for the project.
+#   docker compose up -d      -> start
+#   docker compose down       -> stop (data is kept in the volume)
+#   docker compose down -v    -> stop and delete the data
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: retail_mysql
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mysql_data:

@@ -1,0 +1,10 @@
+-- Analysis views (Part C of the guideline). Use CREATE OR REPLACE VIEW.
+-- Only delivered orders unless a question says otherwise. Revenue = price + freight_value.
+--
+-- TODO (Bhumi):
+--   vw_monthly_revenue     C1  revenue, orders, AOV, month-over-month growth %
+--   vw_rfm                 C2  recency, frequency, monetary, 1-5 scores, segment
+--   vw_cohort              C3  cohort month x month index retention
+--   vw_delivery_review     C4  delay bucket vs average review score
+--   vw_top_category_state  C5  top 3 categories by revenue per state
+--   vw_seller_scorecard    C6  sellers with >= 20 orders: revenue, review, late %

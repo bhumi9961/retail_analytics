@@ -1,0 +1,14 @@
+-- Tables for the clean data (Part B1 of the guideline).
+-- The pipeline runs this file before loading, so write it to be re-runnable:
+--   CREATE TABLE IF NOT EXISTS ...
+--
+-- TODO (Bhumi):
+--   orders       one row per order       PRIMARY KEY (order_id)
+--   order_items  one row per item        PRIMARY KEY (order_id, order_item_id)
+--                                        FOREIGN KEY (order_id) REFERENCES orders(order_id)
+--   Pick sensible types: VARCHAR(32) for ids, DATETIME for dates,
+--   DECIMAL(10,2) for money, TINYINT for is_late / review_score.
+--   Add indexes on columns you filter or join on a lot:
+--   customer_unique_id, order_purchase_timestamp, seller_id.
+--
+-- Note: keep each statement ending with ';' and avoid ';' inside comments.
