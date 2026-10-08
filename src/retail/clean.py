@@ -23,9 +23,9 @@ ORDER_DATE_COLUMNS = [
 # ---------- single-table rules ----------
 
 def drop_nonpositive_prices(items: pd.DataFrame) -> pd.DataFrame:
-    """Remove order items whose price is <= 0.  (Your first task.)"""
-    passing = items[items["price"] > 0]
-    return passing.copy()
+    """Remove order items whose price is <= 0. Rows with a missing price are also removed."""
+    valid_items = items[items["price"] > 0]
+    return valid_items.copy()
 
 def parse_order_dates(orders: pd.DataFrame) -> pd.DataFrame:
     """Convert the date columns in ORDER_DATE_COLUMNS from text to datetime.

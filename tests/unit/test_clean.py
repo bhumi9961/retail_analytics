@@ -13,7 +13,6 @@ tests, e.g.:
     - combine_payments: o1 -> total 65.0, first type "credit_card", max installments 3
 """
 
-import pytest
 
 from retail.clean import drop_nonpositive_prices
 
