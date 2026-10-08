@@ -18,9 +18,7 @@ import pytest
 from retail.clean import drop_nonpositive_prices
 
 
-@pytest.mark.skip(reason="TODO: implement drop_nonpositive_prices first")
 def test_drop_nonpositive_prices_removes_zero_and_negative(order_items):
     result = drop_nonpositive_prices(order_items)
-
     assert (result["price"] > 0).all()
     assert len(result) == 2

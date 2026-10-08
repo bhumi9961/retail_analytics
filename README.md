@@ -39,8 +39,8 @@ Requirements: Python 3.10+, Docker Desktop, Git.
 
 ```bash
 # 1. Get the code and install
-git clone https://github.com/<your-username>/retail-analytics.git
-cd retail-analytics
+git clone https://github.com/bhumi9961/retail_analytics.git
+cd retail_analytics
 python -m venv .venv
 # Windows: .venv\Scripts\activate      Mac/Linux: source .venv/bin/activate
 pip install -e ".[dev]"
