@@ -14,7 +14,7 @@ tests, e.g.:
 """
 import pandas as pd
 
-from retail.clean import drop_nonpositive_prices
+from retail.clean import drop_nonpositive_prices, remove_orders_without_purchase_date
 
 
 def test_drop_nonpositive_prices_removes_zero_and_negative(order_items):
@@ -34,3 +34,14 @@ def test_drop_nonpositive_prices_removes_missing_price():
     result = drop_nonpositive_prices(df)
 
     assert len(result) == 1
+
+def test_remove_orders_without_purchase_date_drops_missing(orders):
+    result = remove_orders_without_purchase_date(orders)
+
+    assert len(result) == 2
+    assert "o2" not in result["order_id"].values
+
+def test_remove_orders_without_purchase_date_does_not_modify_input(orders):
+    remove_orders_without_purchase_date(orders)
+
+    assert len(orders) == 3

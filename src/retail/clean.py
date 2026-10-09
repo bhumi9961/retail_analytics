@@ -37,7 +37,8 @@ def parse_order_dates(orders: pd.DataFrame) -> pd.DataFrame:
 
 def remove_orders_without_purchase_date(orders: pd.DataFrame) -> pd.DataFrame:
     """Drop orders where order_purchase_timestamp is missing."""
-    raise NotImplementedError
+
+    return orders[orders["order_purchase_timestamp"].notna()].copy() 
 
 
 def tidy_city_names(customers: pd.DataFrame) -> pd.DataFrame:

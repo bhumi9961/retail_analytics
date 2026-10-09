@@ -25,6 +25,14 @@ def order_items() -> pd.DataFrame:
         }
     )
 
+@pytest.fixture
+def orders() -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+            "order_id": ["o1", "o2", "o3"],                    
+            "order_purchase_timestamp": ["2017-10-02 10:56:33", None, "2020-05-05 03:36:33"]    
+        }
+    )
 
 @pytest.fixture
 def payments() -> pd.DataFrame:
